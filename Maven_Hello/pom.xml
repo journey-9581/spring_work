@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>Spring01_JavaBasic</groupId>
-  <artifactId>Spring01_JavaBasic</artifactId>
+  <groupId>Maven_Hello</groupId>
+  <artifactId>Maven_Hello</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -16,13 +16,12 @@
       </plugin>
     </plugins>
   </build>
- <!-- 의존 라이브러리를 dependencies의 자식 요소로 작성을 하면 자동으로 사용할 준비가 된다-->
  <dependencies>
- 	<!-- 스프링 기본 라이브러리 -->
- 	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-context</artifactId>
-	    <version>4.0.0.RELEASE</version>
+ 	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
 	</dependency>
  </dependencies>
 </project>

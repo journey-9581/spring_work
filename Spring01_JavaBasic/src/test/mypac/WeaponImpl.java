@@ -6,5 +6,5 @@ public class WeaponImpl implements Weapon{
 	public void attack() {
 		System.out.println("무언가를 공격해요");
 	}
-
+	
 }
