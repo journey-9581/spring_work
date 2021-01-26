@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
-
+	<update id="updateProfile" parameterType="usersDto">
+		UPDATE users
+		SET profile=#{profile}
+		where id=#{id}
+	</update>
+	<select id="isExist" parameterType="String" resultType="usersDto">
+		SELECT *
+		FROM users
+		WHERE id=#{id}
+	</select>
+	<update id="updatePwd" parameterType="usersDto">
+		UPDATE users
+		SET pwd=#{newPwd}
+		WHERE id=#{id} AND pwd=#{pwd}
+	</update>
+	<update id="update" parameterType="usersDto">
+		UPDATE users
+		SET email=#{email}
+		WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM users
+		WHERE id=#{id} <!-- parameterType이 String일땐 아무 문자열이나 전달해줘도 ok -->
+	</delete>
+	<select id="getData" parameterType="String" resultType="usersDto">
+		SELECT pwd, email, profile, TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate <!-- 칼럼명이 필드명과 같아야 한다 -->
+		FROM users
+		WHERE id=#{id}
+	</select>
+	<select id="isValid" parameterType="usersDto" resultType="String">
+		SELECT id
+		FROM users
+		WHERE id=#{id} AND pwd=#{pwd}
+	</select>
+	<insert id="insert" parameterType="usersDto">
+		INSERT INTO users
+		(id, pwd, email, regdate)
+		VALUES(#{id}, #{pwd}, #{email}, SYSDATE)
+	</insert>
 </mapper>
