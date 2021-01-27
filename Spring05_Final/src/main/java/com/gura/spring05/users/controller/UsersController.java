@@ -1,5 +1,8 @@
 package com.gura.spring05.users.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +19,17 @@ public class UsersController {
 	
 	@Autowired
 	private UsersService service;
+	
+	//로그인 폼 요청 처리
+	@RequestMapping("/users/loginform")
+	public ModelAndView loginform(HttpServletRequest request, ModelAndView mView) {
+		//로그인폼에 관련된 로직을 서비스를 통해서 처리한다
+		service.loginformLogic(request, mView);
+		//view page 정보도 담는다
+		mView.setViewName("users/loginform");
+		//리턴
+		return mView;
+	}
 	
 	//회원 가입 요청 처리
 	//form 전송은 보통 post 방식 요청인데 post 방식 요청만 받아들이도록 컨트롤러에 설정하는게 일반적이다
