@@ -9,7 +9,10 @@
 <body>
 <div class="container">
 	<h1>알림</h1>
-	
+	<p>
+		<strong>${dto.id }</strong>님 회원가입 되었습니다
+		<a href="">로그인 하러 가기</a>
+	</p>
 </div>
 </body>
 </html>
