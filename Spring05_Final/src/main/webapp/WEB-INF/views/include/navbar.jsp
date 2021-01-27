@@ -24,7 +24,7 @@
 				</li>
 			</ul>
 			<c:choose>
-				<c:when test="${empty sessionScopte.id }">
+				<c:when test="${empty sessionScope.id }">
 					<a class="btn btn-success btn-sm" 
 					href="${pageContext.request.contextPath }/users/loginform.do">로그인</a>
 					<a class="btn btn-danger btn-sm ml-1" 
