@@ -84,7 +84,7 @@ public class UsersDaoImpl implements UsersDao {
 		 * resultType => UsersDto
 		 */
 		UsersDto dto=session.selectOne("users.getData", id); //select된 row를 dto에 담아야 한다
-		return null;
+		return dto;
 	}
 
 	@Override
