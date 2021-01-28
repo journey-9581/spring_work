@@ -8,7 +8,8 @@
 </head>
 <body>
 <script>
-	
+	alert("수정 했습니다");
+	location.href="info.do";
 </script>	
 </body>
 </html>
