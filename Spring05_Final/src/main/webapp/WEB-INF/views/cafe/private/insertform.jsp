@@ -29,7 +29,7 @@
 			<li class="breadcrumb-item active">새 글 쓰기</li>
 		</ul>
 		</nav>
-		<form action="insert.do">
+		<form action="insert.do" method="post">
 			<div class="form-group">
 				<label for="title">제목</label>
 				<input type="text" class="form-control" name="title" id="title"/>				
