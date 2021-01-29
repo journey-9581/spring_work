@@ -10,10 +10,10 @@
 <body>
 <jsp:include page="include/navbar.jsp"></jsp:include>
 	<div class="container">
-		<%-- 만일 id가 null이 아니라면 로그인을 한 상태이다 --%>
 		<h1>인덱스 페이지</h1>
 		<ul>
 			<li><a href="users/signup_form.do">회원가입</a></li>
+			<li><a href="cafe/private/insertform.do">카페 글쓰러 가기</a></li>
 		</ul>
 	</div>
 </body>
