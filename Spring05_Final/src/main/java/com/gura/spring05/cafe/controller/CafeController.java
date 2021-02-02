@@ -25,9 +25,16 @@ public class CafeController {
 	@Autowired
 	private CafeService service;
 	
+	@RequestMapping("/cafe/ajax_comment_list")
+	public ModelAndView ajaxCommentList(HttpServletRequest request,
+			ModelAndView mView) {
+		service.moreCommentList(request);
+		mView.setViewName("cafe/ajax_comment_list");
+		return mView;
+	}
+	
 	//댓글 수정 ajax 요청에 대한 요청 처리 
-	@RequestMapping(value = "/cafe/private/comment_update", 
-			method=RequestMethod.POST)
+	@RequestMapping(value = "/cafe/private/comment_update", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> commentUpdate(CafeCommentDto dto){
 		//댓글을 수정 반영하고 
@@ -97,8 +104,7 @@ public class CafeController {
 	}
 	
 	//카페 새글 저장 요청 처리
-	@RequestMapping(value = "/cafe/private/insert", 
-			method = RequestMethod.POST)
+	@RequestMapping(value = "/cafe/private/insert", method = RequestMethod.POST)
 	public String insert(CafeDto dto, HttpSession session) {
 		//글작성자는 세션에서 얻어내서
 		String id=(String)session.getAttribute("id");
