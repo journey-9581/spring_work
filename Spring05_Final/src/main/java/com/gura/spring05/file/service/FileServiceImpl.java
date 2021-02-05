@@ -1,6 +1,7 @@
 package com.gura.spring05.file.service;
 
 import java.io.File;
+import java.io.NotActiveException;
 import java.net.URLEncoder;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.gura.spring05.exception.NotAllowException;
 import com.gura.spring05.file.dao.FileDao;
 import com.gura.spring05.file.dto.FileDto;
 
@@ -148,6 +151,8 @@ public class FileServiceImpl implements FileService{
 	public void deleteFile(int num, HttpServletRequest request) {
 		//삭제할 파일의 정보 얻어오기 
 		FileDto dto=fileDao.getData(num);
+		//aspect로 적용
+		
 		//파일 시스템에서 파일 삭제
 		String saveFileName=dto.getSaveFileName();
 		String path=request.getServletContext().getRealPath("/upload")+
